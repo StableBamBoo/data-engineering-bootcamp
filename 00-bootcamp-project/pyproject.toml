@@ -1,18 +1,19 @@
 [tool.poetry]
-name = "different-file-formats"
+name = "apis"
 version = "0.1.0"
 description = ""
 authors = ["zkan <zkan.cs@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-pandas = "^1.5.3"
-jupyter = "^1.0.0"
-pyarrow = "^11.0.0"
-avro = "^1.11.1"
-lxml = "^4.9.2"
-parquet-tools = "^0.2.13"
+python = "^3.9"
+Django = "^4.2"
+djangorestframework = "^3.14.0"
+psycopg2-binary = "^2.9.6"
+django-environ = "^0.10.0"
+django-filter = "^23.1"
+requests = "^2.28.2"
 pyproject-toml = "^0.0.10"
+pysftp = "^0.2.9"
 
 [tool.poetry.dev-dependencies]
 
