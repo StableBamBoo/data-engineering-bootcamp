@@ -10,6 +10,7 @@ host = parser.get("api_config", "host")
 port = parser.get("api_config", "port")
 
 API_URL = f"http://{host}:{port}"
+# API_URL = "http://" + host + ":" + port
 DATA_FOLDER = "data"
 
 ### Events

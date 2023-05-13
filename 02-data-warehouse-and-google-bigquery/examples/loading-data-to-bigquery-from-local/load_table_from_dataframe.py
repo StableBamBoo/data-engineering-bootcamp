@@ -12,7 +12,7 @@ from google.oauth2 import service_account
 keyfile = os.environ.get("KEYFILE_PATH")
 service_account_info = json.load(open(keyfile))
 credentials = service_account.Credentials.from_service_account_info(service_account_info)
-project_id = "dataengineercafe"
+project_id = "skooldio-deb-01-project"
 client = bigquery.Client(
     project=project_id,
     credentials=credentials,
@@ -37,11 +37,23 @@ job_config = bigquery.LoadJobConfig(
     clustering_fields=["first_name", "last_name"],
 )
 
+# job_config = bigquery.LoadJobConfig(
+#     skip_leading_rows=1,
+#     write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+#     source_format=bigquery.SourceFormat.CSV,
+#     autodetect=True,
+#     # time_partitioning=bigquery.TimePartitioning(
+#     #     type_=bigquery.TimePartitioningType.DAY,
+#     #     field="created_at",
+#     # ),
+#     # clustering_fields=["first_name", "last_name"],
+# )
+
 file_path = "users.csv"
 df = pd.read_csv(file_path, parse_dates=["created_at", "updated_at"])
 df.info()
 
-table_id = f"{project_id}.dbt_zkan.users_df"
+table_id = f"{project_id}.deb_workshop.users"
 job = client.load_table_from_dataframe(df, table_id, job_config=job_config)
 job.result()
 
