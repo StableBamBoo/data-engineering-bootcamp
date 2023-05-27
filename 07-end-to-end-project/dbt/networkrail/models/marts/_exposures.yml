@@ -1,0 +1,18 @@
+version: 2
+
+exposures:
+
+  - name: networkrail_train_movement_data
+    label: Network Rail Train Movement Data
+    type: dashboard
+    maturity: high
+    url: https://lookerstudio.google.com/u/0/reporting/973953e2-ac87-46aa-a0a1-4c12f8a3582c/page/TK6RD  # Change to your dashboard's URL
+    description: >
+      Network Rail Train Movement Data
+
+    depends_on:
+      - ref('fct_movements')
+
+    owner:
+      name: Kan Ouivirach  # Change to your name
+      email: kan@odds.team  # Change to your email

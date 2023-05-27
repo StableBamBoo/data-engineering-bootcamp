@@ -1,0 +1,30 @@
+networkrail:
+  target: dbt_wood # naming anything
+
+  outputs:
+
+    # target name
+    dbt_wood:
+    
+      type: bigquery
+      method: service-account
+      project: skooldio-deb-01-project
+      dataset: networkrail
+      threads: 1
+
+      # real local path
+      keyfile: /Users/wutthisak/data-engineering-bootcamp/07-end-to-end-project/dags/wood_networkrail_project_key.json
+
+      location: asia-southeast1
+
+    prod:
+      type: bigquery
+      method: service-account
+      project: skooldio-deb-01-project
+      dataset: networkrail
+      threads: 1
+
+      # real local path
+      keyfile: /Users/wutthisak/data-engineering-bootcamp/07-end-to-end-project/dags/wood_networkrail_project_key.json
+
+      location: asia-southeast1
